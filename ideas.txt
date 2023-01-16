@@ -1,0 +1,24 @@
+segmentJudgement
+-filejudgement: string
+-openFile(): boolean
+-clean_Judgement(): list
+-tile_Judgement(): list
+-getTextjudgement(): string
+
+keywordExtraction
+-judgementsection: list
+-extractQuotes(): list
+-addBlackstone(): list
+
+timestampExtraction
+-filetrasnscripts: string
+-cleanTranscripts(): list
+-extractTimestamps(): list
+-getTextonly(): list
+
+SemanticSearch
+-api_key: string
+-resultsfile: string
+-getEmbedding(): list
+-calculateCosine(): list
+-createJsonresults(): string
