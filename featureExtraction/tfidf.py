@@ -2,6 +2,7 @@ import gensim
 from gensim.similarities import Similarity
 from gensim.test.utils import common_corpus, common_dictionary, get_tmpfile
 from gensim.similarities import MatrixSimilarity
+from tqdm import tqdm
 
 def tf_idf_similarity(section,timestamps):
   """ 
@@ -11,7 +12,7 @@ def tf_idf_similarity(section,timestamps):
     returns results as tuples of similarity score and timestamp index
     """
 
-  timestamps.insert(0,section)
+  # timestamps.insert(0,section)
   clean_trans_summary = []
   for text in timestamps:
     clean_trans_summary.append(gensim.utils.simple_preprocess(text))
@@ -26,7 +27,7 @@ def tf_idf_similarity(section,timestamps):
   query= gensim.utils.simple_preprocess(section)
   query_bow=dictionary.doc2bow(query)
   query_tfidf=tf_idf[query_bow]
-  similarity_scores =list(similarity_object[query_tfidf])
+  similarity_scores =list(tqdm(similarity_object[query_tfidf],total=len(similarity_object),desc="Calculating similarity "))
   similarity_scores = similarity_scores[1:]
   sorted_scores = sorted(similarity_scores, reverse=True)
   #get index of the raw text according to similarity scores

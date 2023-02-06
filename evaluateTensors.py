@@ -1,4 +1,5 @@
 import torch
+import json
 
 
 def calculate_cosine_similarity(timestamps_embeddings, sentence_embedding):
@@ -42,5 +43,5 @@ def get_results(cosine,k,timestamps_ls, section,file_name):
         dictionary = {file_name:section}
         dictionary['Trancription'] = [{'time': times_sp, 'text': trans_te} for times_sp, trans_te in zip(times, texts)]
 
-    with open('./' + file_name +'.json', 'w') as fout:
+    with open('./jsonfiles/' + file_name +'.json', 'w') as fout:
         json.dump(dictionary , fout)

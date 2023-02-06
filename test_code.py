@@ -5,7 +5,7 @@ import keywordExtraction as key
 # cleaning the judgement
 judge= cj.cleanj('judgement.txt')
 clean_judge = judge.preprocessDoc()
-# print(clean_judge)
+print(clean_judge)
 
 # # segmenting the judgement 
 # #into paragraphs

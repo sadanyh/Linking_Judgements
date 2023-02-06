@@ -1,4 +1,7 @@
 # GPT3
+import pandas as pd
+import openai, numpy as np
+from openai.embeddings_utils import get_embedding, cosine_similarity
 from tenacity import retry, wait_random_exponential, stop_after_attempt
 
 # @retry(wait=wait_random_exponential(min=1, max=20), stop=stop_after_attempt(6))
