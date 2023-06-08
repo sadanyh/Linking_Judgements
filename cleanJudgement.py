@@ -21,11 +21,8 @@ class cleanj:
 
     def preprocessDoc(self):
         with open(self.doc, 'r', encoding='utf-8') as f:
-            lines = f.read().splitlines()
-        printable = set(string.printable) #clean non-utf8
-        lines_cl = [self.remove_nonunicode(line) for line in lines ]
-        lines2 = [ t for t in lines_cl if t != '' if t != ' ' ] #clean empty lines
-        #lines3 = [ t for t in lines2 if len(t.split()) > 10 ]
-        lines3 = [re.sub("\s\s+" , " ", line) for line in lines2]
-        
-        return lines3
+            judgement = f.read()
+        segments = re.split("\n(?=[0-9])",judgement)
+        cleaned_segs = [r for r in segments if  r[0].isnumeric()]
+                
+        return cleaned_segs
