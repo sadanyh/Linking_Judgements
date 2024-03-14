@@ -1,0 +1,2 @@
+These are the files for the output of the annotation by our legal annotators. It includes the annotation output for each segment of the Suprement Court Case transcript and whether it is relevant or not relevant to the judgement segment.
+  True (is relevant), False (is not relevant)
